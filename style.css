@@ -1,29 +1,61 @@
-:root {
-  --color-primary: #f5ba4b;
-  --color-scend: #fff;
-  --color-withe-fade: #ffffff63;
-
-  --transition: 0.3s ease-in-out;
+/* Navbar
+========================================= */
+#navbar {
+  padding: 1rem 1rem;
 }
 
-*,
-*::before,
-*::after {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+/* Container */
+.container {
+  max-width: 60%;
+  margin: auto;
 }
 
-body {
-  direction: ltr;
-  font-family: sans-serif;
+/* Navbar Brand */
+.navbar-brand {
+  float: left;
+  padding: 1rem 0;
 }
 
-ul,
-ol {
-  list-style: none;
+.navbar-brand a {
+  font-size: 1.5rem;
 }
 
-a {
-  text-decoration: none;
+.navbar-navigation {
+  padding: 1rem 0;
+}
+
+.navbar-navigation ul li {
+  display: inline-block;
+  float: left;
+}
+
+.navbar-navigation ul li a {
+  color: var(--color-scend);
+}
+
+.navbar-navigation-social {
+  float: left;
+}
+
+.navbar-navigation-social ul li {
+  padding-left: 2rem;
+}
+
+.navbar-navigation-social ul li span {
+  display: block;
+  width: 1px;
+  height: 1rem;
+  background-color: black;
+}
+
+.navbar-navigation-links {
+  float: right;
+}
+
+.navbar-navigation-links ul li {
+  padding-left: 2rem;
+}
+
+.navbar-navigation-links ul li a {
+  font-size: 0.9rem;
 }
