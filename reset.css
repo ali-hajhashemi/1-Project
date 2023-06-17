@@ -28,3 +28,8 @@ ol {
 a {
   text-decoration: none;
 }
+
+::selection {
+  background-color: var(--color-primary);
+  color: var(--color-scend);
+}

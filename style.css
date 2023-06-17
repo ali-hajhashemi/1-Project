@@ -142,7 +142,6 @@
 /* Cover
 ================================================ */
 #cover {
-  z-index: -100;
   width: 100%;
   height: 100vh;
 }
@@ -158,16 +157,10 @@
   background-position: center center;
   background-size: cover;
   background-image: url(/img/42.jpg);
-  z-index: -3;
-}
-
-@media screen and (max-width: 768px) {
-  #cover {
-    /* height: 50vh; */
-  }
 }
 
 .cover-fade {
+  position: absolute;
   display: block;
   width: 100%;
   height: 100%;
@@ -176,15 +169,14 @@
   background-size: cover;
   background-color: #212529;
   opacity: 0.55;
-  z-index: -2;
 }
 
 /* Content */
 #cover .container {
-  z-index: 1;
   text-align: center;
   position: relative;
-  top: -60%;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 #cover .container .pre-heading {
