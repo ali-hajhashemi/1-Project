@@ -1,7 +1,8 @@
 :root {
   --color-primary: #f5ba4b;
-  --color-scend: #eee;
-  --color-withe-fade: #ffffff63;
+  --color-scend: #fff;
+  --color-withe-fade: #ffffff3e;
+  --color-withe-fade2: #ffffffa6;
 
   --transition: 0.3s ease-in-out;
 }
@@ -17,8 +18,6 @@
 body {
   direction: ltr;
   font-family: sans-serif;
-  font-weight: bold;
-  background-color: black;
 }
 
 ul,
