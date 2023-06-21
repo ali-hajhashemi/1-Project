@@ -17,7 +17,7 @@
 
 body {
   direction: ltr;
-  font-family: sans-serif;
+  font-family: Helvetica;
 }
 
 ul,
@@ -32,4 +32,50 @@ a {
 ::selection {
   background-color: var(--color-primary);
   color: var(--color-scend);
+}
+
+.clearfix::after,
+.clearfix::before {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Container */
+.container {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media screen and (min-width: 576px) {
+  .container {
+    max-width: 100%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 720px;
+  }
+}
+
+@media screen and (min-width: 992) {
+  .container {
+    max-width: 910px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .container {
+    max-width: 1080px;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .container {
+    max-width: 1200px;
+  }
 }
