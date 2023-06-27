@@ -20,6 +20,7 @@
 body {
   direction: ltr;
   font-family: Helvetica;
+  overflow-x: hidden;
 }
 
 ul,
