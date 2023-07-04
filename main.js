@@ -28,6 +28,7 @@ $(document).ready(function () {
 
   $(".navbar-menu-mobile").click(function name(params) {
     $(".navbar-navigation-elements").slideToggle(400);
+    $(".navbar-menu-mobile").toggleClass("active");
   });
 
   /* Show Case Slide Changer
