@@ -27,7 +27,7 @@ wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/main.js'
 // ======================================================================
 
 // Add Post Type
-function wporg_custom_post_type()
+function wp_custom_post_type()
 {
     register_post_type(
         'wporg_product',
@@ -43,7 +43,7 @@ function wporg_custom_post_type()
         )
     );
 }
-add_action('init', 'wporg_custom_post_type');
+add_action('init', 'wp_custom_post_type');
 
 
 // ==========================================================================

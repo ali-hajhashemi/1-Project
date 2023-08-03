@@ -11,7 +11,7 @@ $(document).ready(function () {
                 status = false;
             }
 
-            $('.navbar-navigation-links > ul > li > ul').slideUp();
+            // $('.navbar-navigation-links > ul > li > ul').slideUp();
 
             if (status) {
                 $(currentUl).slideUp();
@@ -25,13 +25,17 @@ $(document).ready(function () {
         function (e) {
             e.preventDefault();
             var currentUl = $(this).parent().children('ul');
-            $('.menu-item-has-children > ul').slideToggle();
             var status = null;
             if ($(currentUl).is(':visible')) {
                 status = true;
             } else {
                 status = false;
             }
+
+            $(
+                '.navbar-navigation-links > ul > ul > .menu-item-has-children > ul'
+            ).slideDown();
+
             if (status) {
                 $(currentUl).slideUp();
             } else {
