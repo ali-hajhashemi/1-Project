@@ -1,24 +1,31 @@
 <?php
 
-// Add reset.css Style File
-wp_enqueue_style('reset-style', get_template_directory_uri() . '/assets/css/reset.css');
 
-// Add style.css Style File (Main)
-wp_enqueue_style('style', get_stylesheet_uri());
+function add_resources()
+{
+
+    // Add reset.css Style File
+    wp_enqueue_style('reset-style', get_template_directory_uri() . '/assets/css/reset.css');
+
+    // Add style.css Style File (Main)
+    wp_enqueue_style('style', get_stylesheet_uri());
 
 
 
-// Add Fontawesome Style File
-wp_enqueue_style('fontawesome', get_template_directory_uri() . '/assets/fonts/Web/css/all.min.css');
+    // Add Fontawesome Style File
+    wp_enqueue_style('fontawesome', get_template_directory_uri() . '/assets/fonts/Web/css/all.min.css');
 
 
-// ====================================================================
+    // ====================================================================
 
-// Add jquery.js Javascript File
-wp_enqueue_script('jquery-js', get_template_directory_uri() . '/assets/js/jquery.js', array(), '3.7.0', true);
+    // Add jquery.js Javascript File
+    wp_enqueue_script('jquery-js', get_template_directory_uri() . '/assets/js/jquery.js', array(), '3.7.0', true);
 
-// Add main.js Javascript File (Main)
-wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery-js'), '1.0', true);
+    // Add main.js Javascript File (Main)
+    wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery-js'), '1.0', true);
+}
+
+add_action('wp_enqueue_scripts', 'add_resources');
 
 
 
@@ -27,10 +34,17 @@ wp_enqueue_script('main-js', get_template_directory_uri() . '/assets/js/main.js'
 // ======================================================================
 
 // Add Post Type
-function wp_custom_post_type()
+function register_posts_types()
 {
+
+
+    add_theme_support('post-thumbnails');
+
+    add_theme_support('post-formats', array('aside', 'gallery'));
+
+
     register_post_type(
-        'wporg_product',
+        'showcase',
         array(
             'labels'      => array(
                 'name'          => __('Showcase', 'textdomain'),
@@ -38,12 +52,13 @@ function wp_custom_post_type()
             ),
             'public'      => true,
             'has_archive' => true,
-            'supports' => array('title', 'thumbnail', 'excerpt', 'editor')
-
+            'supports'           => array('title', 'editor', 'thumbnail')
         )
     );
 }
-add_action('init', 'wp_custom_post_type');
+add_action('init', 'register_posts_types');
+
+
 
 
 // ==========================================================================

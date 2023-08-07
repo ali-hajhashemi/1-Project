@@ -910,14 +910,23 @@ Text Domain: ''
 }
 
 .showcase-slide-preheading {
+  display: flex;
+  justify-content: center;
   margin-bottom: 2rem;
 }
 
 .showcase-slide-preheading span {
-  display: block;
   color: #ffffffa6;
   font-weight: bolder;
   font-size: 0.75rem;
+}
+
+.showcase-slide-preheading span a {
+  color: #ffffffa6;
+  font-weight: bolder;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 .showcase-slide-heading {
@@ -951,10 +960,11 @@ Text Domain: ''
 
 .showcase-slide-button a {
   color: var(--color-scend);
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 2rem;
   border: 1px solid var(--color-primary);
   text-transform: uppercase;
-  font-size: 0.75rem;
+  font-size: .75rem;
+  font-weight: bolder;
 }
 
 /***** Product *****/
