@@ -1209,6 +1209,7 @@ Text Domain: ''
   padding-top: 2rem;
   text-decoration: underline var(--color-primary);
   text-decoration-style: wavy;
+  text-transform: capitalize;
 }
 
 /***** End Quote Section *****/

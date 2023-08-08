@@ -55,6 +55,58 @@ function register_posts_types()
             'supports'           => array('title', 'editor', 'thumbnail')
         )
     );
+
+    register_post_type(
+        'services',
+        array(
+            'labels'      => array(
+                'name'          => __('Services', 'textdomain'),
+                'singular_name' => __('Services', 'textdomain'),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'           => array('title', 'editor', 'thumbnail')
+        )
+    );
+
+    register_post_type(
+        'special-services',
+        array(
+            'labels'      => array(
+                'name'          => __('Special-Services', 'textdomain'),
+                'singular_name' => __('Special-Services', 'textdomain'),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'           => array('title', 'editor', 'thumbnail')
+        )
+    );
+
+    register_post_type(
+        'quote',
+        array(
+            'labels'      => array(
+                'name'          => __('Quote', 'textdomain'),
+                'singular_name' => __('Quote', 'textdomain'),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'           => array('editor')
+        )
+    );
+
+    register_post_type(
+        'features',
+        array(
+            'labels'      => array(
+                'name'          => __('Features', 'textdomain'),
+                'singular_name' => __('Features', 'textdomain'),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'           => array('title', 'editor')
+        )
+    );
 }
 add_action('init', 'register_posts_types');
 

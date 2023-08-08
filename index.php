@@ -130,196 +130,165 @@
     </section>
   <?php endif; ?>
 
-  <!-- Product
+
+
+  <?php
+  $services_posts = new WP_Query(array(
+
+    'post_type' => 'services',
+    'posts_per_page' => '-1'
+
+  ));
+  ?>
+
+  <?php if ($services_posts->have_posts()) : ?>
+    <!-- Product
     =============================================================== -->
-  <section id="product">
-    <div class="container">
-      <div class="product-heading">
-        <h1>Landing page variants</h1>
-        <p>
-          Incline comes with several professionally designed landing pages
-          that can be easily adapted for any project.
-        </p>
-      </div>
-      <div class="product-products">
-        <!-- Product -->
-        <div class="the-product">
-          <a href="">
-            <img src="/img/45.png" alt="" />
-            <h1>App landing</h1>
-            <p>
-              You can use this page to promote your web or mobile application.
-            </p>
-          </a>
-        </div>
-        <!-- Product -->
-        <div class="the-product">
-          <a href="">
-            <img src="/img/90.png" alt="" />
-            <h1>Company landing</h1>
-            <p>You can use this page to promote your company.</p>
-          </a>
-        </div>
-        <!-- Product -->
-        <div class="the-product">
-          <a href="">
-            <img src="/img/57.png" alt="" />
-            <h1>Fullpage scrolling</h1>
-            <p>A landing page created with fullscreen scrolling sections.</p>
-          </a>
-        </div>
-        <!-- Product -->
-        <div class="the-product">
-          <a href="">
-            <img src="/img/44.png" alt="" />
-            <h1>Product landing</h1>
-            <p>You can use this page to promote your product or a store.</p>
-          </a>
-        </div>
-        <!-- Product -->
-        <div class="the-product">
-          <a href="">
-            <img src="/img/46.png" alt="" />
-            <h1>Real estate landing</h1>
-            <p>You can use this page to promote your real estate.</p>
-          </a>
-        </div>
-        <!-- Product -->
-        <div class="the-product">
-          <a href="">
-            <img src="/img/91.png" alt="" />
-            <h1>Restaurant landing</h1>
-            <p>You can use this page to promote your restaurant.</p>
-          </a>
-        </div>
-        <!-- Product -->
-        <div class="the-product">
-          <a href="">
-            <img src="/img/43.png" alt="" />
-            <h1>Service landing</h1>
-            <p>
-              You can use this page to promote your business or a service.
-            </p>
-          </a>
-        </div>
-        <!-- Product -->
-        <div class="the-product">
-          <a href="">
-            <img src="" alt="" />
-            <h1>Coming soon</h1>
-            <p>
-              Feel free to contact us with your ideas about new pages and
-              components.
-            </p>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="special-products">
-    <div class="container">
-      <!-- Heading -->
-      <div class="special-products-top-line"></div>
-      <!-- Title -->
-      <div class="special-products-heading">
-        <h1>Header variants</h1>
-        <p>
-          Polish your landing page with one of the header options below to
-          impress your visitors at first glance.
-        </p>
-      </div>
-      <!-- Products -->
-      <div class="special-products-posts">
-        <!-- Post -->
-        <div class="special-products-post">
-          <a href="">
-            <img src="/img/51.png" alt="" />
-            <h1>Carousel header</h1>
-            <p>
-              Switch between multiple slides with full cover background
-              images.
-            </p>
-          </a>
-        </div>
-        <!-- Post -->
-        <div class="special-products-post">
-          <a href="">
-            <img src="/img/52.png" alt="" />
-            <h1>Parallax header</h1>
-            <p>
-              Good old parallax effect to add even more visual interest to
-              your page.
-            </p>
-          </a>
-        </div>
-        <!-- Post -->
-        <div class="special-products-post">
-          <a href="">
-            <img src="/img/53.png" alt="" />
-            <h1>Video header</h1>
-            <p>Local video background you can optionally loop if needed.</p>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Quote Section -->
-  <section id="quote">
-    <div class="container">
-      <div class="quote-icon">
-        <i class="fa-solid fa-quote-left"></i>
-      </div>
-      <div class="quote-title">
-        <h5>
-          This theme is a Swiss Army knife of Bootstrap themes. Built with
-          components in mind, it can be easily adjusted to create layouts of
-          any complexity within a few minutes.
-        </h5>
-        <p>Yuri Gamin, Moscow</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Features -->
-  <section id="features">
-    <div class="container">
-      <!-- Heading -->
-      <div class="features-heading">
-        <h1>Key theme features</h1>
-        <p>
-          Incline can be used to create anything from a small marketing page
-          to a sophisticated website.
-        </p>
-      </div>
-      <!-- Posts -->
-      <div class="features-posts">
-        <!-- Post -->
-        <div class="features-post">
-          <i class="fa-solid fa-mobile-screen-button"></i>
-          <h1>Fully responsive</h1>
+    <section id="product">
+      <div class="container">
+        <div class="product-heading">
+          <h1>Landing page variants</h1>
           <p>
-            Looks great on all major browsers, tablets and mobile devices.
+            Incline comes with several professionally designed landing pages
+            that can be easily adapted for any project.
           </p>
         </div>
-        <!-- Post -->
-        <div class="features-post">
-          <i class="fa-solid fa-shield-halved"></i>
-          <h1>Built with SASS</h1>
-          <p>Easily adjustable with tons of SASS variables included.</p>
-        </div>
-        <!-- Post -->
-        <div class="features-post">
-          <i class="fa-solid fa-headset"></i>
-          <h1>Free support</h1>
-          <p>
-            Feel free to contact us with any feature requests or bug reports.
-          </p>
+        <div class="product-products">
+          <!-- Product -->
+          <?php while ($services_posts->have_posts()) : $services_posts->the_post(); ?>
+            <div class="the-product">
+              <a href="">
+                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" />
+                <h1><?php echo get_the_title(); ?></h1>
+                <p>
+                  <?php echo get_the_content(); ?>
+                </p>
+              </a>
+            </div>
+          <?php endwhile; ?>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <?php endif; ?>
+
+
+
+
+  <?php
+  $special_posts = new WP_Query(array(
+
+    'post_type' => 'special-services',
+    'posts_per_page' => '-1'
+
+  ));
+  ?>
+
+  <?php if ($special_posts->have_posts()) : ?>
+    <!-- Special Products
+  ============================================================================ -->
+
+    <section id="special-products">
+      <div class="container">
+        <!-- Heading -->
+        <div class="special-products-top-line"></div>
+        <!-- Title -->
+        <div class="special-products-heading">
+          <h1>Header variants</h1>
+          <p>
+            Polish your landing page with one of the header options below to
+            impress your visitors at first glance.
+          </p>
+        </div>
+        <!-- Products -->
+        <div class="special-products-posts">
+          <?php while ($special_posts->have_posts()) : $special_posts->the_post(); ?>
+            <!-- Post -->
+            <div class="special-products-post">
+              <a href="">
+                <img src="<?php echo get_the_post_thumbnail_url(); ?>" alt="" />
+                <h1><?php echo get_the_title(); ?></h1>
+                <p>
+                  <?php echo get_the_content(); ?>
+                </p>
+              </a>
+            </div>
+          <?php endwhile; ?>
+        </div>
+      </div>
+    </section>
+  <?php endif; ?>
+
+
+  <?php
+  $quote_post = new WP_Query(array(
+
+    'post_type' => 'quote',
+    'posts_per_page' => '1'
+
+  ));
+  ?>
+
+  <?php if ($quote_post->have_posts()) : ?>
+    <!-- Quote Section 
+  ===================================================================-->
+    <section id="quote">
+      <div class="container">
+        <div class="quote-icon">
+          <i class="fa-solid fa-quote-left"></i>
+        </div>
+        <?php while ($quote_post->have_posts()) : $quote_post->the_post(); ?>
+          <div class="quote-title">
+            <h5>
+              <?php echo get_the_content(); ?>
+            </h5>
+            <p><?php echo get_the_author(); ?></p>
+          </div>
+        <?php endwhile; ?>
+      </div>
+    </section>
+  <?php endif; ?>
+
+
+  <?php
+  $features = new WP_Query(array(
+
+    'post_type' => 'features',
+    'posts_per_page' => '-1'
+
+  ));
+  ?>
+
+
+  <?php if ($features->have_posts()) : ?>
+    <!-- Features 
+  ====================================================================-->
+    <section id="features">
+      <div class="container">
+        <!-- Heading -->
+        <div class="features-heading">
+          <h1>Key theme features</h1>
+          <p>
+            Incline can be used to create anything from a small marketing page
+            to a sophisticated website.
+          </p>
+        </div>
+        <!-- Posts -->
+        <div class="features-posts">
+          <!-- Post -->
+          <?php while ($features->have_posts()) : $features->the_post(); ?>
+            <div class="features-post">
+              <!-- Icone -->
+              <i class="fa-solid fa-mobile-screen-button"></i>
+              <!-- Title -->
+              <h1><?php echo get_the_title(); ?></h1>
+              <!-- Content -->
+              <p><?php echo get_the_content(); ?></p>
+            </div>
+          <?php endwhile; ?>
+        </div>
+      </div>
+    </section>
+  <?php endif; ?>
 
   <!-- Documentation -->
   <section id="document">
