@@ -282,7 +282,9 @@
               <!-- Title -->
               <h1><?php echo get_the_title(); ?></h1>
               <!-- Content -->
-              <p><?php echo get_the_content(); ?></p>
+              <p>
+                <?php echo get_the_content(); ?>
+              </p>
             </div>
           <?php endwhile; ?>
         </div>
@@ -333,131 +335,108 @@
     </div>
   </section>
 
-  <!-- Solution -->
-  <section id="solution">
-    <div class="container">
-      <!-- Heading -->
-      <div class="solution-heading">
-        <h1>Ultimate solution</h1>
-        <p>
-          Easily create a website of any complexity with dozens of pages and
-          independent components for any purpose.
-        </p>
-      </div>
-      <!-- Content -->
-      <div class="solution-content">
-        <!-- Cards -->
-        <div class="solution-cards">
-          <!-- Card -->
-          <div class="solution-card">
-            <!-- BG -->
-            <div class="solution-card-bg" style="background-image: url(/img/24.jpg)"></div>
-            <!-- Detail -->
-            <div class="solution-card-detail">
-              <i class="fa-solid fa-layer-group"></i>
-              <h1>Support pages</h1>
-              <p>
-                Finish off your website with multiple support pages included
-                into the package.
-              </p>
-            </div>
-          </div>
 
-          <!-- Card -->
-          <div class="solution-card">
-            <!-- BG -->
-            <div class="solution-card-bg" style="background-image: url(/img/22.jpg)"></div>
-            <!-- Detail -->
-            <div class="solution-card-detail">
-              <i class="fa-solid fa-check-double"></i>
-              <h1>Landing pages</h1>
-              <p>
-                Beautiful marketing pages to help you promote your product or
-                a service.
-              </p>
-            </div>
-          </div>
 
-          <!-- Card -->
-          <div class="solution-card">
-            <!-- BG -->
-            <div class="solution-card-bg" style="background-image: url(/img/15.jpg)"></div>
-            <!-- Detail -->
-            <div class="solution-card-detail">
-              <i class="fa-solid fa-puzzle-piece"></i>
-              <h1>Custom components</h1>
-              <p>Combine dozens of components to create unique layouts.</p>
-            </div>
+  <?php
+  $solution = new WP_Query(array(
+
+    'post_type' => 'solution',
+    'posts_per_page' => '3'
+
+  ));
+  ?>
+
+  <?php if ($solution->have_posts()) : ?>
+    <!-- Solution
+  ========================================================== -->
+    <section id="solution">
+      <div class="container">
+        <!-- Heading -->
+        <div class="solution-heading">
+          <h1>Ultimate solution</h1>
+          <p>
+            Easily create a website of any complexity with dozens of pages and
+            independent components for any purpose.
+          </p>
+        </div>
+        <!-- Content -->
+        <div class="solution-content">
+          <!-- Cards -->
+          <div class="solution-cards">
+            <!-- Card -->
+            <?php while ($solution->have_posts()) : $solution->the_post(); ?>
+              <div class="solution-card">
+                <!-- BG -->
+                <div class="solution-card-bg" style="background-image:url('<?php echo get_the_post_thumbnail_url(); ?>');"></div>
+                <!-- Detail -->
+                <div class="solution-card-detail">
+                  <i class="fa-solid fa-layer-group"></i>
+                  <h1><?php echo get_the_title(); ?></h1>
+                  <p><?php echo get_the_content(); ?></p>
+                </div>
+              </div>
+            <?php endwhile; ?>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <?php endif; ?>
 
-  <!-- Pricing -->
-  <section id="pricing">
-    <div class="container">
-      <!-- Heading -->
-      <div class="pricing-heading">
-        <h1>Pricing options</h1>
-        <p>Secure payment via Stripe or Paypal. 100% money back guarantee.</p>
-      </div>
-      <!-- Planes -->
-      <div class="pricing-planes">
-        <!-- Plane -->
-        <div class="pricing-plane">
-          <!-- plane heading -->
-          <div class="pricing-plane-heading">
-            <h1>Standard license</h1>
-            <h2>$49.00</h2>
-          </div>
-          <!-- plane details -->
-          <div class="pricing-plane-detail">
-            <i class="fa-solid fa-chevron-right"></i>
-            <p>Use for a single product</p>
-          </div>
-          <div class="pricing-plane-detail">
-            <i class="fa-solid fa-chevron-right"></i>
-            <p>Non-paying users only</p>
-          </div>
-          <div class="pricing-plane-detail">
-            <i class="fa-solid fa-chevron-right"></i>
-            <p>Read <a href="">full description</a></p>
-          </div>
-          <!-- plane button -->
-          <div class="pricing-plane-button">
-            <a href="">Purchase Now</a>
-          </div>
+
+
+  <?php
+  $pricing = new WP_Query(array(
+
+    'post_type' => 'pricing',
+    'posts_per_page' => '3'
+
+  ));
+  ?>
+
+
+  <?php if ($pricing->have_posts()) : ?>
+    <!-- Pricing 
+  ========================================================================================-->
+    <section id="pricing">
+      <div class="container">
+        <!-- Heading -->
+        <div class="pricing-heading">
+          <h1>Pricing options</h1>
+          <p>Secure payment via Stripe or Paypal. 100% money back guarantee.</p>
         </div>
-
-        <!-- Plane -->
-        <div class="pricing-plane">
-          <!-- plane heading -->
-          <div class="pricing-plane-heading">
-            <h1>Extended license</h1>
-            <h2>$490.00</h2>
-          </div>
-          <!-- plane details -->
-          <div class="pricing-plane-detail">
-            <i class="fa-solid fa-chevron-right"></i>
-            <p>Use for a single product</p>
-          </div>
-          <div class="pricing-plane-detail">
-            <i class="fa-solid fa-chevron-right"></i>
-            <p>Paying users allowed</p>
-          </div>
-          <div class="pricing-plane-detail">
-            <i class="fa-solid fa-chevron-right"></i>
-            <p>Read <a href="">full description</a></p>
-          </div>
-          <!-- plane button -->
-          <div class="pricing-plane-button">
-            <a href="">Purchase Now</a>
-          </div>
+        <!-- Planes -->
+        <div class="pricing-planes">
+          <?php while ($pricing->have_posts()) : $pricing->the_post(); ?>
+            <!-- Plane -->
+            <div class="pricing-plane">
+              <!-- plane heading -->
+              <div class="pricing-plane-heading">
+                <h1><?php echo get_the_title(); ?></h1>
+                <h2><?php echo get_the_content(); ?></h2>
+              </div>
+              <!-- plane details -->
+              <div class="pricing-plane-detail">
+                <i class="fa-solid fa-chevron-right"></i>
+                <p><?php echo get_the_excerpt(); ?></p>
+              </div>
+              <div class="pricing-plane-detail">
+                <i class="fa-solid fa-chevron-right"></i>
+                <p><?php echo get_the_excerpt(); ?></p>
+              </div>
+              <div class="pricing-plane-detail">
+                <i class="fa-solid fa-chevron-right"></i>
+                <p><?php echo get_the_excerpt(); ?></p>
+              </div>
+              <!-- plane button -->
+              <div class="pricing-plane-button">
+                <a href="">Purchase Now</a>
+              </div>
+            </div>
+          <?php endwhile; ?>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  <?php endif; ?>
 
   <!-- Download -->
   <section id="download">
@@ -476,46 +455,7 @@
     </div>
   </section>
 
-  <!-- Footer
-==================================================================== -->
-  <footer id="footer">
-    <div class="container">
-      <!-- Left Side -->
-      <div class="footer-left-side">
-        <div class="footer-logo">
-          <a href="">Logo</a>
-        </div>
-        <div class="footer-copyright">
-          <p>© Copyright 2023 Simpleqode. All rights reserved.</p>
-        </div>
-      </div>
-      <!-- Right Side -->
-      <div class="footer-right-side">
-        <!-- Links -->
-        <div class="footer-links">
-          <ul>
-            <li><a href="">Terms and conditions</a></li>
-            <li><a href="">Privacy policy</a></li>
-            <li><a href="">Contact us</a></li>
-          </ul>
-        </div>
-        <!-- Social -->
-        <div class="footer-social">
-          <ul>
-            <li>
-              <a href=""><i class="fa-brands fa-github"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa-brands fa-twitter"></i></a>
-            </li>
-            <li>
-              <a href=""><i class="fa-brands fa-instagram"></i></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
+  <?php get_footer(); ?>
 
   <?php wp_footer(); ?>
 

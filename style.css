@@ -1265,6 +1265,7 @@ Text Domain: ''
 .features-post {
   padding-left: 1rem;
   padding-right: 1rem;
+  color: #ffffffa6;
 }
 
 .features-post i {
@@ -1705,12 +1706,18 @@ Text Domain: ''
 
 .footer-left-side .footer-logo {
   margin-bottom: 2rem;
+  width: 100px;
 }
 
 .footer-left-side .footer-logo a {
   color: var(--color-scend);
   font-size: 1.5rem;
   display: block;
+}
+
+.footer-left-side .footer-logo a img {
+  width: 100%;
+  height: auto;
 }
 
 .footer-left-side .footer-copyright p {

@@ -107,6 +107,32 @@ function register_posts_types()
             'supports'           => array('title', 'editor')
         )
     );
+
+    register_post_type(
+        'solution',
+        array(
+            'labels'      => array(
+                'name'          => __('Solution', 'textdomain'),
+                'singular_name' => __('Solution', 'textdomain'),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'           => array('title', 'editor', 'thumbnail')
+        )
+    );
+
+    register_post_type(
+        'pricing',
+        array(
+            'labels'      => array(
+                'name'          => __('Pricing', 'textdomain'),
+                'singular_name' => __('Pricing', 'textdomain'),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'           => array('title', 'editor', 'excerpt')
+        )
+    );
 }
 add_action('init', 'register_posts_types');
 
@@ -120,6 +146,10 @@ function theme_setup()
 
     register_nav_menus(array(
         'primary' => __('Primary Menu')
+    ));
+
+    register_nav_menus(array(
+        'footer' => __('Footer Menu')
     ));
 
     // Add Custom-logo Support
