@@ -1,37 +1,58 @@
-<?php get_header(); ?>
+
+<?php
+
+// Add Header Section
+get_header();
+// -----------------------------------------------------
+
+// Add Showcase Section
+get_template_part('/template-parts/showcase');
+// -----------------------------------------------------
 
 
-<?php get_template_part('/template-parts/showcase'); ?>
+// Add Products Section
+get_template_part('/template-parts/products');
+// -----------------------------------------------------
 
 
-
-<?php get_template_part('/template-parts/products'); ?>
-
-
-
-
-<?php get_template_part('/template-parts/special-products'); ?>
+// Add Special Products Section
+get_template_part('/template-parts/special-products');
+// -----------------------------------------------------
 
 
-<?php get_template_part('/template-parts/quote'); ?>
+// Add Quote Section
+get_template_part('/template-parts/quote');
+// -----------------------------------------------------
 
 
-<?php get_template_part('/template-parts/features'); ?>
-
-<?php get_template_part('/template-parts/document-section'); ?>
-
-
-<?php get_template_part('/template-parts/solution'); ?>
+// Add Features Section
+get_template_part('/template-parts/features');
+// -----------------------------------------------------
 
 
-
-<?php get_template_part('/template-parts/pricing'); ?>
-
-
-
-<?php get_template_part('/template-parts/download'); ?>
+// Add Document Section
+get_template_part('/template-parts/document-section');
+// -----------------------------------------------------
 
 
+// Add Solution Section
+get_template_part('/template-parts/solution');
+// -----------------------------------------------------
 
 
-<?php get_footer(); ?>
+// Add Pricing Section
+get_template_part('/template-parts/pricing');
+// -----------------------------------------------------
+
+
+// Add Download Section
+get_template_part('/template-parts/download');
+// -----------------------------------------------------
+
+
+// Add Footer Section
+get_footer();
+// -----------------------------------------------------
+
+
+?>

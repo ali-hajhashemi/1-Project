@@ -20,8 +20,22 @@
 <body>
     <!-- Navbar
     ===================================================== -->
-    <nav id="navbar">
-        <div class="container">
+    <nav id="navbar" class="<?php
+
+                            if (is_single()) {
+
+                                echo 'single-navbar-setting';
+                            }
+
+                            ?>">
+        <div class="container <?php
+
+                                if (is_single()) {
+                                    echo 'single-navbar-container-setting';
+                                }
+
+
+                                ?>">
             <!-- Navigation -->
             <div class="navbar-navigation clearfix">
                 <!-- Brand -->
