@@ -416,7 +416,7 @@ Text Domain: ''
   background-color: #343a40;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-  margin-top: 6.45rem;
+  margin-top: 4rem;
 }
 
 .where-navigation {
@@ -428,6 +428,7 @@ Text Domain: ''
   color: var(--color-scend);
   font-weight: lighter;
   font-size: 1rem;
+  text-transform: capitalize;
 }
 
 .where-navigation-right-side ul {
@@ -458,6 +459,7 @@ Text Domain: ''
   color: #ffffff80;
   font-size: 0.79688rem;
   font-weight: lighter;
+  text-transform: capitalize;
 }
 
 /* Blog Post
@@ -504,6 +506,7 @@ Text Domain: ''
   color: #212529;
   font-weight: bolder;
   font-size: 0.8rem;
+  text-transform: capitalize;
 }
 
 .blog-post-heading-title h1 {
@@ -653,29 +656,73 @@ Text Domain: ''
   font-size: 0.75rem;
 }
 
-.blog-post-comment-add-comment-heading {
+.comments-heading {
   margin-bottom: 2rem;
 }
 
-.blog-post-comment-add-comment-heading h1 {
+.comments-heading h2 {
   font-size: 0.9rem;
   font-weight: lighter;
   color: #6c757d;
 }
 
-.blog-post-comment-add-comment-write {
+.comments {
   display: flex;
+  flex-direction: column;
   margin-bottom: 3rem;
 }
 
-.blog-post-comment-add-comment-write img {
+.comments li {
+  list-style: none;
+}
+
+.comment-author img {
   width: 2rem;
   height: 2rem;
   object-fit: cover;
   margin-right: 1rem;
 }
 
-.blog-post-comment-add-comment-write textarea {
+.form-submit {
+  /* display: none; */
+  margin-top: 1rem;
+}
+
+.form-submit input.submit {
+  padding: 0.5rem 1.25rem;
+  background-color: transparent;
+  border: 1px #f7c86f solid;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: var(--transition);
+}
+
+.form-submit input.submit:hover {
+  color: #f7c86f;
+  border-color: #ccc;
+}
+
+.comment-form {
+  margin-bottom: 3rem;
+}
+
+.comment-respond h3 {
+  display: none;
+}
+
+.comment-form .logged-in-as {
+  display: none;
+}
+
+.comment-form .comment-form-comment label {
+  display: none;
+}
+
+.comment-form-comment {
+  display: block;
+}
+
+.comment-form-comment textarea {
   display: block;
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
@@ -684,10 +731,42 @@ Text Domain: ''
   outline: none;
   width: 100%;
   height: 5rem;
+  max-width: 100%;
 }
 
-.blog-post-comment-add-comment-write textarea:focus {
+.comment-form-comment textarea:focus {
   border: 1px solid var(--color-primary);
+}
+
+.comment:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.comment-meta {
+  display: flex;
+  align-items: center;
+}
+
+.comment-author {
+  display: flex;
+  align-items: center;
+}
+
+.comment-metadata .edit-link {
+  display: none;
+}
+
+.comment .reply {
+  display: none;
+}
+
+.comment-content {
+  line-height: 1.5rem;
+  color: #212529;
+  font-size: 0.9rem;
+  flex-wrap: wrap;
+  width: 100%;
+  margin-left: 3rem;
 }
 
 .blog-post-comment-comments {
