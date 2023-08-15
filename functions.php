@@ -133,6 +133,19 @@ function register_posts_types()
             'supports'           => array('title', 'editor', 'excerpt')
         )
     );
+
+    register_post_type(
+        'blog-hot-posts',
+        array(
+            'labels'      => array(
+                'name'          => __('Blog Hot Posts', 'textdomain'),
+                'singular_name' => __('Blog Hot Posts', 'textdomain'),
+            ),
+            'public'      => true,
+            'has_archive' => true,
+            'supports'           => array('title', 'editor')
+        )
+    );
 }
 add_action('init', 'register_posts_types');
 

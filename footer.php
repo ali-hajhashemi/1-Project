@@ -8,7 +8,7 @@
                   <a href=""><?php echo get_custom_logo(); ?></a>
               </div>
               <div class="footer-copyright">
-                  <p>&copy; Copyright <?php echo Date('Y'); ?> <?php bloginfo('name'); ?> All rights reserved.</p>
+                  <p>&copy; Copyright <?php echo Date('Y'); ?> <strong><?php bloginfo('name'); ?></strong> All rights reserved.</p>
               </div>
           </div>
           <!-- Right Side -->

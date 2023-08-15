@@ -753,6 +753,11 @@ Text Domain: ''
   align-items: center;
 }
 
+.comment-metadata time {
+  color: #6c757d !important;
+  cursor: default;
+}
+
 .comment-metadata .edit-link {
   display: none;
 }

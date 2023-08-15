@@ -86,7 +86,7 @@ get_header();
         <div class="blog-post-comment">
           <div class="blog-post-comment-heading">
             <h1>Reader's comments:</h1>
-            <p>2 comments founded</p>
+            <p><?php comments_number(); ?> founded</p>
           </div>
           <!-- Add Comment -->
           <?php comments_template(); ?>
@@ -95,58 +95,41 @@ get_header();
     </div>
   </section>
 
-  <!-- Hot comments -->
-  <div class="blog-post-comments-hot-comments">
-    <div class="container">
-      <!-- Hot comment -->
-      <div class="blog-post-comments-hot-comment">
-        <div class="blog-post-comments-hot-comment-heading">
-          <div class="blog-post-comments-hot-comment-heading-avatar">
-            <img src="/img/16.jpg" alt="" srcset="" />
-          </div>
-          <div class="blog-post-comments-hot-comment-heading-detail">
-            <p>by <strong>John Doe</strong> 5 hours ago</p>
-          </div>
-        </div>
-        <div class="blog-post-comments-hot-comment-detail">
-          <h1>Enhance your brand potential with giant advertising</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-      </div>
+  <?php
+  $blog_hot_posts = new WP_Query(array(
 
-      <!-- Hot comment -->
-      <div class="blog-post-comments-hot-comment">
-        <div class="blog-post-comments-hot-comment-heading">
-          <div class="blog-post-comments-hot-comment-heading-avatar">
-            <img src="/img/18.jpg" alt="" srcset="" />
-          </div>
-          <div class="blog-post-comments-hot-comment-heading-detail">
-            <p>by <strong>Jane Roe</strong> 5 hours ago</p>
-          </div>
-        </div>
-        <div class="blog-post-comments-hot-comment-detail">
-          <h1>Enhance your brand potential with giant advertising</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
-      </div>
+    'post_type' => 'blog-hot-posts',
+    'posts_per_page' => '3'
 
-      <!-- Hot comment -->
-      <div class="blog-post-comments-hot-comment">
-        <div class="blog-post-comments-hot-comment-heading">
-          <div class="blog-post-comments-hot-comment-heading-avatar">
-            <img src="/img/17.jpg" alt="" srcset="" />
+  ));
+
+  ?>
+
+  <?php if ($blog_hot_posts->have_posts()) : ?>
+    <!-- Hot comments -->
+    <div class="blog-post-comments-hot-comments">
+      <div class="container">
+        <!-- Hot comment -->
+        <?php while ($blog_hot_posts->have_posts()) : $blog_hot_posts->the_post(); ?>
+          <div class="blog-post-comments-hot-comment">
+            <div class="blog-post-comments-hot-comment-heading">
+              <div class="blog-post-comments-hot-comment-heading-avatar">
+                <?php echo get_avatar(get_the_author_meta('ID')); ?>
+              </div>
+              <div class="blog-post-comments-hot-comment-heading-detail">
+                <p>by <strong><?php echo get_the_author(); ?></strong> <?php echo get_the_date('Y  M  d'); ?></p>
+              </div>
+            </div>
+            <div class="blog-post-comments-hot-comment-detail">
+              <h1><?php echo get_the_title(); ?></h1>
+              <p><?php echo get_the_content(); ?></p>
+            </div>
           </div>
-          <div class="blog-post-comments-hot-comment-heading-detail">
-            <p>by <strong>Judy Doe</strong> 5 hours ago</p>
-          </div>
-        </div>
-        <div class="blog-post-comments-hot-comment-detail">
-          <h1>Enhance your brand potential with giant advertising</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-        </div>
+        <?php endwhile; ?>
       </div>
     </div>
-  </div>
+
+  <?php endif; ?>
 
 <?php endwhile; ?>
 
