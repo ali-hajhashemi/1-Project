@@ -96,21 +96,21 @@ get_header();
   </section>
 
   <?php
-  $blog_hot_posts = new WP_Query(array(
-
-    'post_type' => 'blog-hot-posts',
-    'posts_per_page' => '3'
-
+  $related_query = new WP_Query(array(
+    'post_type' => 'post',
+    'category__in' => wp_get_post_categories(get_the_ID()),
+    'post__not_in' => array(get_the_ID()),
+    'posts_per_page' => 3,
+    'orderby' => 'date',
   ));
-
   ?>
 
-  <?php if ($blog_hot_posts->have_posts()) : ?>
+  <?php if ($related_query->have_posts()) : ?>
     <!-- Hot comments -->
     <div class="blog-post-comments-hot-comments">
       <div class="container">
         <!-- Hot comment -->
-        <?php while ($blog_hot_posts->have_posts()) : $blog_hot_posts->the_post(); ?>
+        <?php while ($related_query->have_posts()) : $related_query->the_post(); ?>
           <div class="blog-post-comments-hot-comment">
             <div class="blog-post-comments-hot-comment-heading">
               <div class="blog-post-comments-hot-comment-heading-avatar">
